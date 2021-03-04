@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Steps 
+```
+rails -h
+
+rails new rails_url_shortner -d=postgresql -T --webpack=react --skip-coffee
+
+```
