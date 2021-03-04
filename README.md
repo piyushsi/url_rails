@@ -33,4 +33,7 @@ rails db:create
 
 yarn add react-router-dom tailwindcss jquery popper.js
 
+rails g controller Homepage index
+
+
 ```
