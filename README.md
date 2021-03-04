@@ -29,4 +29,6 @@ rails -h
 
 rails new rails_url_shortner -d=postgresql -T --webpack=react --skip-coffee
 
+rails db:create
+
 ```
