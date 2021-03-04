@@ -27,6 +27,6 @@ Things you may want to cover:
 ```
 rails -h
 
-rails new rails_react_recipe -d=postgresql -T --webpack=react --skip-coffee
+rails new shortner -d=postgresql -T --webpack=react --skip-coffee
 
 ```
