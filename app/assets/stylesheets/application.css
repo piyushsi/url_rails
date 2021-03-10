@@ -228,7 +228,6 @@ main {
   letter-spacing: 3px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  visibility: hidden;
 }
 .btn6:hover,
 .btn6:link:hover,
