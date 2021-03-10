@@ -1,9 +1,19 @@
 class LinksController < ApplicationController
 
 def index
-    links = Link.order("pinned DESC, updated_at DESC")
+    links = Link.order("pinned DESC")
     render status: :ok, json: { links: links }
   end
+
+def pinLink 
+  @link  = Link.find_by(url: url_params)
+  @link.pinned =true
+  @link.slug = @link.slug
+  @link.save
+  links = Link.all
+  render status: :ok, json: { links: links }
+ 
+end
 
 def createLink
     @link  = Link.find_by(url: url_params)
@@ -36,5 +46,7 @@ def createLink
     def url_params
         params.required(:url)
     end
+
+    
 
     end
