@@ -29,8 +29,14 @@ rails -h
 
 rails new rails_url_shortner -d=postgresql -T --webpack=react --skip-coffee
 
+<!-- sudo -u postgres createuser xyz -->
+<!-- sudo -u postgres psql -c 'alter user xyz with createdb' postgres -->
+
 rails db:create
 
 yarn add react-router-dom tailwindcss jquery popper.js
+
+rails g controller Homepage index
+
 
 ```

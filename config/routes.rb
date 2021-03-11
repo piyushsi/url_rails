@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root "homepage#index"
+  get "/report", to: "homepage#index"
+  get '/api/report', to: "links#index"
+  get '/:slug' => "links#redirectLink" 
+  post "/api/v1/url", to: "links#createLink"
+  post "/api/v1/urlpin", to: "links#pinLink"
+  
 end
