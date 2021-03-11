@@ -7,10 +7,10 @@ def index
 
 def pinLink 
   @link  = Link.find_by(url: url_params)
-  @link.pinned =true
+  @link.pinned =!@link.pinned
   @link.slug = @link.slug
   @link.save
-  links = Link.all
+  links = Link.order("pinned DESC")
   render status: :ok, json: { links: links }
  
 end
