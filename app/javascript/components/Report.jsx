@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Axios from 'axios'
 
 export default function Report() {
+    const [loading, setLoader] = useState(true)
     const [data, setData] = useState(null)
     const [pinned, setPinned] = useState(false)
     useEffect(() => {
@@ -10,15 +11,16 @@ export default function Report() {
     }, [])
 
     const getReport = (x) => {
-        console.log(x)
         Axios.get('/api/report').then(response => {
             x ? setData(response.data.links.filter(a => a.pinned)) : setData(response.data.links)
+            setLoader(false)
         })
     }
     const pinIt = (url) => {
-        
+        setLoader(true)
         Axios.post('/api/v1/urlpin', { url }).then(response => {
             pinned ? setData(response.data.links.filter(a => a.pinned)) : setData(response.data.links)
+            setLoader(false)
         })
     }
     return <main>
@@ -41,7 +43,10 @@ export default function Report() {
                 </ul><br />
 
             </div>
-            <ul class="list">
+            {loading ? <div class="spinner" >
+                <div class="head">
+                </div>
+            </div> : <ul class="list">
                 {data?.map(e => {
                     console.log(e)
 
@@ -54,7 +59,8 @@ export default function Report() {
                 })}
 
 
-            </ul>
+            </ul>}
+
             <br></br>
         </section>
 
