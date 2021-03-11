@@ -37,7 +37,6 @@ export default function Home() {
     }
   }
 
-  console.log(data)
   return (
     <main>
       <div class="ui-toolbar">
