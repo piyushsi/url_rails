@@ -11,6 +11,7 @@ export default function Report() {
     }, [])
 
     const getReport = (x) => {
+        setLoader(true)
         Axios.get('/api/report').then(response => {
             x ? setData(response.data.links.filter(a => a.pinned)) : setData(response.data.links)
             setLoader(false)
